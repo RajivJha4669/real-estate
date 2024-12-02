@@ -1,0 +1,16 @@
+.bg-global {
+  background-image: url('/assets/image/skyblue.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+::ng-deep swiper-container::part(container) {
+  overflow: hidden !important;
+  padding-bottom: 40px !important;
+}
+
+swiper-slide {
+  width: 380px !important;
+  transition: all 200ms linear;
+}

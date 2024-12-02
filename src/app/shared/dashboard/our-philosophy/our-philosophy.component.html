@@ -1,0 +1,18 @@
+<section class="w-full bg-[#f3f3f3]">
+  <div class="flex flex-col gap-4 text-center h-64">
+    <!-- <img src="assets/svg/building.svg" alt="" class="mb-2 h-16 mt-6" /> -->
+    <h3 class="text-4xl font-semibold tracking-tight mt-20">Our Philosophy</h3>
+
+    <div class="typing-container">
+      <span class="typed-text"
+        ><span class="text-2xl font-semibold text-gray-500 italic"
+          >Go Beyond </span
+        >|
+        <span class="text-2xl font-semibold text-blue-700">{{
+          typedText
+        }}</span></span
+      >
+      <span class="cursor" [class.typing]="isTyping">|</span>
+    </div>
+  </div>
+</section>
