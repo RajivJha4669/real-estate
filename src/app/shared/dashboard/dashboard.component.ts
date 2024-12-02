@@ -7,6 +7,7 @@ import { FeatureComponent } from './feature/feature.component';
 import { OurPhilosophyComponent } from './our-philosophy/our-philosophy.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ScrollTopComponent } from '../../common/scroll-top/scroll-top.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,6 +22,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     NearbyAreaComponent,
     ServicesComponent,
     OurPhilosophyComponent,
+    ScrollTopComponent,
   ],
 })
 export class DashboardComponent implements OnInit {

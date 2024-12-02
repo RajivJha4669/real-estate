@@ -1,0 +1,11 @@
+@if (showButton) {
+<div
+  id="scrollTopBtn"
+  class="scroll scroll--active fixed bottom-4 right-4 opacity-100 transition-opacity duration-300 z-50"
+  (click)="scrollToTop()"
+>
+  <button type="button" class="top-btn" aria-label="Scroll to Top">
+    <span class="sr-only">Scroll to Top</span>
+  </button>
+</div>
+}
