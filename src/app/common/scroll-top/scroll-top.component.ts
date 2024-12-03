@@ -5,7 +5,6 @@ import { Component, HostListener, OnInit } from '@angular/core';
   selector: 'app-scroll-top',
   templateUrl: './scroll-top.component.html',
   styleUrls: ['./scroll-top.component.css'],
-  imports: [NgClass],
 })
 export class ScrollTopComponent implements OnInit {
   constructor() {}

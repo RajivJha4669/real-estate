@@ -7,21 +7,14 @@
   }"
 >
   <div class="flex items-center justify-start gap-4 lg:gap-6">
-    <button
-      type="button"
-      aria-disabled="false"
-      class="group inline-flex items-center justify-center whitespace-nowrap align-middle font-semibold transition-all duration-300 ease-in-out disabled:cursor-not-allowed stroke-current p-0 disabled:stroke-slate-400 disabled:text-slate-400 hover:stroke-current hover:text-opacity-80 h-6 min-w-[24px] gap-1.5 rounded-md text-xs lg:hidden"
-      aria-label="Menu"
-    ></button>
-
-    <div class="flex items-center gap-3">
+    <div class="flex max-sm:pl-4 items-center gap-3">
       <span
         class="font-bold text-lg md:text-xl lg:text-2xl tracking-wide transition-all duration-300 ease-in-out hover:opacity-100 cursor-pointer"
       >
-        Messha
+        Misha
         <span
           [ngClass]="{
-            'text-blue-700': !isScrolled,
+            'text-white': !isScrolled,
             'text-blue-600': isScrolled
           }"
           >Developers</span
