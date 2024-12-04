@@ -7,7 +7,7 @@
     class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"
   ></div>
 
-  <div class="z-10 mt-16">
+  <div class="z-10 mt-16 max-sm:max-w-sm max-md:max-w-md">
     <div class="flex justify-center items-center">
       <div class="space-y-8">
         <h2
@@ -25,14 +25,13 @@
           </span>
         </h2>
         <h3
-          class="text-2xl tracking-tight leading-10 text-center font-medium text-white sm:leading-none md:text-3xl"
+          class="text-2xl max-sm:text-xl tracking-tight leading-10 text-center font-medium text-white sm:leading-none md:text-3xl"
         >
           Your dream room - modern, convenient, and just for you.
         </h3>
       </div>
     </div>
-
-    <div class="md:flex md:justify-center my-12">
+    <div class="flex items-center justify-center my-12 max-sm:my-8">
       <div
         class="rounded-md shadow"
         data-aos="fade-up"
@@ -42,7 +41,7 @@
       >
         <a
           (click)="scrollTo('contact-us')"
-          class="flex items-center justify-center px-8 py-2 border border-transparent text-base leading-6 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-md md:px-10"
+          class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-6 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,28 +60,34 @@
       </div>
     </div>
 
-    <div class="md:flex md:justify-center">
+    <div class="md:flex md:justify-center max-sm:px-4">
       <div>
         <div class="flex justify-center items-center">
           <div class="text-center">
-            <h2 class="text-4xl font-bold text-white">
+            <h2 class="text-4xl max-sm:text-xl font-bold text-white">
               {{ fulfilledProjects }} +
             </h2>
-            <p class="text-gray-300 text-lg">Fulfilled projects</p>
+            <p class="text-gray-300 max-sm:text-sm text-lg">
+              Fulfilled projects
+            </p>
           </div>
-          <div class="w-1 h-24 bg-white mx-4"></div>
+          <div class="w-1 h-24 max-sm:h-16 bg-white mx-4"></div>
           <div class="text-center">
-            <h2 class="text-4xl font-bold text-white">
+            <h2 class="text-4xl max-sm:text-xl font-bold text-white">
               {{ satisfiedCustomers }}+
             </h2>
-            <p class="text-gray-300 text-lg">Satisfied customers</p>
+            <p class="text-gray-300 text-lg max-sm:text-sm">
+              Satisfied customers
+            </p>
           </div>
-          <div class="w-1 h-24 bg-white mx-4"></div>
+          <div class="w-1 h-24 max-sm:h-16 bg-white mx-4"></div>
           <div class="text-center">
-            <h2 class="text-4xl font-bold text-white">
+            <h2 class="text-4xl max-sm:text-xl font-bold text-white">
               {{ yearsOnMarket }}
             </h2>
-            <p class="text-gray-300 text-lg">Years on the market</p>
+            <p class="text-gray-300 text-lg max-sm:text-sm">
+              Years on the market
+            </p>
           </div>
         </div>
 
@@ -91,11 +96,15 @@
             <div
               class="flex justify-center items-baseline text-gray-900 dark:text-white text-5xl sm:text-5xl font-extrabold mt-4"
             >
-              <span class="text-blue-500 text-4xl">&#8377;</span>
-              <span class="ml-2 text-4xl">47.44 L</span>
-              <span class="ml-2 text-2xl italic">Starting Price</span>
+              <span class="text-blue-500 text-4xl max-sm:text-2xl"
+                >&#8377;</span
+              >
+              <span class="ml-2 text-4xl max-sm:text-2xl">47.44 L</span>
+              <span class="ml-2 text-2xl italic max-sm:text-base"
+                >Starting Price</span
+              >
             </div>
-            <p class="text-gray-300 text-sm sm:text-base mt-2">
+            <p class="text-gray-300 text-sm sm:text-sm mt-2">
               <span class="font-medium">*</span> Prices may vary depending on
               location and included amenities.
             </p>
