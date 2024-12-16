@@ -1,0 +1,63 @@
+<section
+  id="hero"
+  class="max-w-screen-2xl m-auto w-full px-3 sm:px-8 lg:px-16 xl:px-32 flex items-center justify-between py-4 mt-16"
+>
+  <div class="w-full grid grid-cols-3 gap-8">
+    <div class="col-span-2">
+      <img
+        [src]="project.image"
+        alt="Card Preview"
+        class="max-w-[1000px] w-full h-[600px] object-cover rounded-lg shadow-md"
+      />
+    </div>
+    <div class="w-full flex flex-col items-center justify-center gap-6">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-center md:text-left">
+        {{ project.name }}
+      </h2>
+      <p class="text-lg text-slate-800 text-center md:text-left">
+        {{ project.description }}
+      </p>
+      <div class="flex flex-col gap-4">
+        <p
+          class="flex items-center justify-center md:justify-start gap-2 text-blue-700 font-semibold"
+        >
+          <img src="assets/svg/location.svg" alt="Location" class="h-6" />
+          {{ project.location }}
+        </p>
+        <p class="font-normal text-left">Type: {{ project.details.type }}</p>
+      </div>
+
+      <!-- Highlights Section -->
+      <div>
+        <h3 class="text-xl mb-2 text-center md:text-left">Highlights:</h3>
+        <ul class="list-disc list-inside space-y-2 text-center md:text-left">
+          <li *ngIf="project.details.storey">
+            Storey: {{ project.details.storey }}
+          </li>
+          <li *ngFor="let p of project.details.projects">
+            {{ p.bhk }} - {{ p.price }}
+          </li>
+          <li class="font-normal">
+            Possession: {{ project.details.possession }}
+          </li>
+          <li class="font-normal">Parking: {{ project.details.parking }}</li>
+        </ul>
+      </div>
+
+      <div class="flex justify-center mt-4">
+        <a
+          [href]="project.brochureLink"
+          download
+          class="inline-flex items-center px-4 py-2 bg-blue-700 text-white rounded-lg shadow-lg hover:bg-blue-800 transition duration-300 max-w-[250px]"
+        >
+          <span class="mr-2">Download Brochure</span>
+          <img
+            src="assets/svg/download.svg"
+            alt=""
+            class="h-6 w-6 text-white"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

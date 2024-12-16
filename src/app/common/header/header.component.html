@@ -2,19 +2,19 @@
   id="header"
   class="max-w-screen-2xl m-auto w-full px-3 sm:px-8 lg:px-16 xl:px-32 flex items-center justify-between py-4 fixed top-0 left-0 right-0 transition-all duration-300 z-50"
   [ngClass]="{
-    'bg-transparent text-white': !isScrolled,
-    'bg-white text-black shadow-md': isScrolled
+    'bg-transparent text-white': !isScrolled && isDashboard,
+    'bg-white text-black shadow-md': isScrolled || !isDashboard
   }"
 >
   <div class="flex items-center justify-start gap-4 lg:gap-6">
-    <div class="flex max-sm:pl-4 items-center gap-3">
+    <div class="flex max-sm:pl-4 items-center gap-3" routerLink="/dashboard">
       <span
         class="font-bold text-lg md:text-xl lg:text-2xl tracking-wide transition-all duration-300 ease-in-out hover:opacity-100 cursor-pointer"
       >
         Misha
         <span
           [ngClass]="{
-            'text-white': !isScrolled,
+            'text-white': !isScrolled && isDashboard,
             'text-blue-600': isScrolled
           }"
           >Developers</span
@@ -26,25 +26,25 @@
   <div class="hidden gap-10 md:flex">
     <div class="hidden gap-8 lg:flex">
       <a
-        (click)="scrollTo('hero')"
+        (click)="navigateOrScroll('hero')"
         class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg py-2 align-middle text-base font-semibold leading-none transition-all duration-300 px-2 h-[38px] gap-2 cursor-pointer hover:opacity-80"
       >
         <div>Home</div>
       </a>
       <a
-        (click)="scrollTo('feature')"
+        (click)="navigateOrScroll('feature')"
         class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg py-2 align-middle text-base font-semibold leading-none transition-all duration-300 px-2 h-[38px] gap-2 cursor-pointer hover:opacity-80"
       >
         <div>Property</div>
       </a>
       <a
-        (click)="scrollTo('services')"
+        (click)="navigateOrScroll('services')"
         class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg py-2 align-middle text-base font-semibold leading-none transition-all duration-300 px-2 h-[38px] gap-2 cursor-pointer hover:opacity-80"
       >
         <div>Facilities</div>
       </a>
       <a
-        (click)="scrollTo('nearby-area')"
+        (click)="navigateOrScroll('nearby-area')"
         class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg py-2 align-middle text-base font-semibold leading-none transition-all duration-300 px-2 h-[38px] gap-2 cursor-pointer hover:opacity-80"
       >
         <div>Nearby</div>
@@ -54,7 +54,7 @@
     <button
       type="button"
       aria-disabled="false"
-      (click)="scrollTo('contact-us')"
+      (click)="navigateOrScroll('contact-us')"
       class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg py-2 align-middle text-base font-semibold leading-none transition-all duration-300 bg-blue-700 text-white hover:bg-blue-950 h-[38px] gap-2 px-4"
     >
       <div>Contact Us</div>

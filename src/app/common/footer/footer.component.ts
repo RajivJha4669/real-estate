@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ScrollService } from '../services/scroll.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
 })
-export class FooterComponent implements OnInit {
-  constructor() {}
+export class FooterComponent {
+  isDashboard = false;
+  constructor(private router: Router, private scrollService: ScrollService) {
+    this.router.events.subscribe(() => {
+      this.isDashboard = this.router.url.startsWith('/dashboard');
+    });
+  }
 
-  ngOnInit() {}
-
-  scrollTo(sectionId: string) {
-    const section = document.querySelector(`#${sectionId}`);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  navigateOrScroll(sectionId: string) {
+    this.scrollService.navigateOrScroll(sectionId, this.isDashboard);
   }
 }

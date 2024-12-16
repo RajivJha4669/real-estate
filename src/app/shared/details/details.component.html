@@ -1,0 +1,140 @@
+<section
+  id="hero"
+  class="max-w-screen-2xl mx-auto py-20 px-4 sm:px-6 lg:px-16 xl:px-32"
+>
+  <div class="flex max-md:flex-col-reverse lg:flex-row gap-12">
+    <!-- Left Section -->
+    <div class="w-full lg:w-1/2 flex flex-col gap-8">
+      <h2
+        class="text-2xl sm:text-3xl md:text-3xl font-extrabold text-center lg:text-left"
+      >
+        {{ project.name }}
+      </h2>
+      <p
+        class="text-base sm:text-lg md:text-xl text-gray-800 text-center lg:text-left leading-relaxed"
+      >
+        {{ project.description }}
+      </p>
+      <div class="flex flex-col gap-4 text-left">
+        <p
+          class="flex items-center gap-2 text-blue-700 font-medium text-base sm:text-lg"
+        >
+          <img
+            src="assets/svg/location.svg"
+            alt="Location"
+            class="h-5 sm:h-6"
+          />
+          {{ project.location }}
+        </p>
+        <p class="text-gray-700 font-normal text-sm sm:text-base">
+          Type: <span class="font-semibold">{{ project.details.type }}</span>
+        </p>
+      </div>
+      <div>
+        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">
+          Highlights:
+        </h3>
+        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+          <li *ngIf="project.details.storey">
+            Storey: {{ project.details.storey }}
+          </li>
+          <li *ngFor="let p of project.details.projects">
+            {{ p.bhk }} - {{ p.price }}
+          </li>
+          <li>Possession: {{ project.details.possession }}</li>
+          <li>Parking: {{ project.details.parking }}</li>
+        </ul>
+      </div>
+      <a
+        (click)="navigateOrScroll('contact-us')"
+        class="inline-flex justify-center items-center px-4 py-3 w-[180px] bg-black text-white text-sm sm:text-base font-medium rounded-lg shadow-md hover:bg-blue-800 transition duration-300"
+      >
+        <span class="mr-2">Contact Us</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="size-5"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>
+      <a
+        [href]="project.brochureLink"
+        download
+        class="inline-flex justify-center items-center px-6 py-3 w-[250px] bg-blue-700 text-white text-sm sm:text-base font-medium rounded-lg shadow-md hover:bg-blue-800 transition duration-300"
+      >
+        <span class="mr-2">Download Brochure</span>
+        <img
+          src="assets/svg/download-light.svg"
+          alt="Download"
+          class="h-5 w-5"
+        />
+      </a>
+
+      <!-- Basic Details -->
+      <h2 class="text-2xl font-semibold text-gray-900">Basic Details:</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 mb-8">
+        <div
+          *ngFor="let detail of project.details.basicDetails"
+          class="bg-gray-100 p-4 rounded-lg flex items-center space-x-3"
+        >
+          <img [src]="detail.iconPath" alt="" class="h-6 w-6 text-blue-600" />
+          <div>
+            <p class="text-sm text-gray-600">{{ detail.title }}</p>
+            <p class="text-lg font-semibold text-gray-900">
+              {{ detail.value }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Amenities Section -->
+      <h2 class="text-2xl font-semibold text-gray-900">Amenities:</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4">
+        <div
+          *ngFor="let amenity of project.details.amenities"
+          class="bg-gray-100 p-4 rounded-lg flex items-center space-x-3"
+        >
+          <img [src]="amenity.iconPath" alt="" class="h-6 w-6 text-blue-600" />
+          <span class="text-gray-800">{{ amenity.name }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="w-full lg:w-1/2 flex flex-col items-center">
+      <div
+        class="relative w-full rounded-lg shadow-lg overflow-hidden"
+        [attr.data-aos]="project.animation"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="1000"
+      >
+        <img
+          [src]="selectedImage"
+          alt="Product Preview"
+          class="w-full h-[300px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
+        />
+      </div>
+      <div
+        class="w-full flex gap-2 mt-4 overflow-x-auto lg:overflow-visible lg:flex-wrap lg:gap-4"
+      >
+        <div
+          *ngFor="let image of project.images"
+          class="cursor-pointer flex-shrink-0 w-24 sm:w-28 lg:w-32"
+        >
+          <img
+            [src]="image"
+            alt="Thumbnail"
+            class="w-full h-20 sm:h-24 lg:h-28 object-cover rounded-lg shadow-md hover:opacity-80 transition duration-300"
+            (click)="selectImage(image)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
