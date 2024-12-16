@@ -8,10 +8,14 @@
 >
   <div class="flex items-center justify-start gap-4 lg:gap-6">
     <div class="flex max-sm:pl-4 items-center gap-3" routerLink="/dashboard">
+      <img
+        src="assets/logo/Misha.svg"
+        alt="misha"
+        class="h-10 w-10 inline-block"
+      />
       <span
-        class="font-bold text-lg md:text-xl lg:text-2xl tracking-wide transition-all duration-300 ease-in-out hover:opacity-100 cursor-pointer"
-      >
-        Misha
+        class="font-bold text-lg md:text-xl lg:text-2xl tracking-wide transition-all duration-300 ease-in-out hover:opacity-100 cursor-pointer inline-block"
+        >Misha
         <span
           [ngClass]="{
             'text-white': !isScrolled && isDashboard,
