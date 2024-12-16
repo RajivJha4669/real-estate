@@ -1,4 +1,5 @@
 <section
+  id="projects"
   id="hero"
   class="max-w-screen-2xl mx-auto py-20 px-4 sm:px-6 lg:px-16 xl:px-32"
 >
@@ -76,44 +77,52 @@
         />
       </a>
 
-      <!-- Basic Details -->
       <h2 class="text-2xl font-semibold text-gray-900">Basic Details:</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 mb-8">
+      <div
+        class="grid grid-cols-2 gap-4 mb-8 sm:grid-cols-2 lg:grid-cols-3 place-content-center"
+      >
         <div
           *ngFor="let detail of project.details.basicDetails"
-          class="bg-gray-100 p-4 rounded-lg flex items-center space-x-3"
+          class="bg-gray-100 p-3 md:p-4 rounded-lg flex items-center space-x-2 sm:space-x-3"
+          style="height: 80px"
         >
-          <img [src]="detail.iconPath" alt="" class="h-6 w-6 text-blue-600" />
+          <img
+            [src]="detail.iconPath"
+            alt=""
+            class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600"
+          />
           <div>
-            <p class="text-sm text-gray-600">{{ detail.title }}</p>
-            <p class="text-lg font-semibold text-gray-900">
+            <p class="text-xs sm:text-sm text-gray-600">{{ detail.title }}</p>
+            <p class="text-base sm:text-lg font-semibold text-gray-900">
               {{ detail.value }}
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Amenities Section -->
       <h2 class="text-2xl font-semibold text-gray-900">Amenities:</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4">
+      <div
+        class="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3 place-content-center"
+      >
         <div
           *ngFor="let amenity of project.details.amenities"
-          class="bg-gray-100 p-4 rounded-lg flex items-center space-x-3"
+          class="bg-gray-100 p-3 md:p-4 rounded-lg flex items-center space-x-2 sm:space-x-3"
+          style="height: 80px"
         >
-          <img [src]="amenity.iconPath" alt="" class="h-6 w-6 text-blue-600" />
-          <span class="text-gray-800">{{ amenity.name }}</span>
+          <img
+            [src]="amenity.iconPath"
+            alt=""
+            class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600"
+          />
+          <span class="text-xs sm:text-sm text-gray-800">{{
+            amenity.name
+          }}</span>
         </div>
       </div>
     </div>
-
     <!-- Right Section -->
     <div class="w-full lg:w-1/2 flex flex-col items-center">
-      <div
-        class="relative w-full rounded-lg shadow-lg overflow-hidden"
-        [attr.data-aos]="project.animation"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-      >
+      <div class="relative w-full rounded-lg shadow-lg overflow-hidden">
         <img
           [src]="selectedImage"
           alt="Product Preview"

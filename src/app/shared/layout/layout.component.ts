@@ -1,4 +1,4 @@
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FooterComponent } from '../../common/footer/footer.component';
 import { HeaderComponent } from '../../common/header/header.component';
@@ -11,7 +11,13 @@ import { ScrollTopComponent } from '../../common/scroll-top/scroll-top.component
   imports: [RouterOutlet, HeaderComponent, FooterComponent, ScrollTopComponent],
 })
 export class LayoutComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
+  }
 }
