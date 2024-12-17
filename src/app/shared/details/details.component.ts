@@ -1,7 +1,9 @@
 import { CommonModule, NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ScrollService } from '../../common/services/scroll.service';
+import { filter } from 'rxjs';
+import { MetaService } from '../../common/services/meta.service';
 
 @Component({
   selector: 'app-details',
@@ -222,6 +224,9 @@ export class DetailsComponent implements OnInit {
     if (this.project && this.project.images) {
       this.selectedImage = this.project.images[0];
     }
+    this.route.data.subscribe((data: any) => {
+      this.metaService.updateMeta(data);
+    });
   }
 
   selectImage(image: string): void {
@@ -232,7 +237,8 @@ export class DetailsComponent implements OnInit {
   constructor(
     private router: Router,
     private scrollService: ScrollService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private metaService: MetaService
   ) {
     this.router.events.subscribe(() => {
       this.isDashboard = this.router.url.startsWith('/dashboard');

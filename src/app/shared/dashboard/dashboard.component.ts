@@ -5,6 +5,10 @@ import { FeatureComponent } from './feature/feature.component';
 import { OurPhilosophyComponent } from './our-philosophy/our-philosophy.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
+import { MetaService } from '../../common/services/meta.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +24,15 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
   ],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private titleService: Title,
+    private metaService: MetaService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe((data: any) => {
+      this.metaService.updateMeta(data);
+    });
+  }
 }

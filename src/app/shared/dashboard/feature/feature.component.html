@@ -15,6 +15,7 @@
       [attr.data-aos]="project.animation"
       data-aos-easing="ease-in-out"
       data-aos-duration="1000"
+      [routerLink]="'/project/' + project.id"
     >
       <div
         class="relative box-content flex items-center justify-center overflow-hidden rounded-tl-3xl rounded-br-3xl bg-blue-700 stroke-white border-white drop-shadow-lg border-[3px]"
@@ -33,34 +34,21 @@
         <p class="text-xl font-semibold">{{ project.title }}</p>
         <p class="text-base text-slate-500">{{ project.description }}</p>
         <p
-          class="text-sm text-blue-700 font-semibold flex items-start gap-1 h-8"
+          class="text-sm text-slate-500 font-normal flex items-start gap-1 h-8"
         >
           <img src="assets/svg/location.svg" alt="" class="h-4" />
           <span>{{ project.location }}</span>
         </p>
         <button
-          [routerLink]="'/project/' + project.id"
-          class="flex justify-end w-full items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-950 transition-all duration-300 ease-in-out"
+          class="flex justify-end w-full items-center gap-2 text-sm font-semibold text-blue-950 hover:text-blue-700 transition-all duration-300 ease-in-out"
         >
           <span>View details</span>
           <img
             src="assets/svg/arrow-right.svg"
             alt="Icon"
-            class="h-4 w-4 text-blue-700"
+            class="h-4 w-4 text-blue-950 hover:text-blue-700"
           />
         </button>
-        <a
-          [href]="project.brochureUrl"
-          download
-          class="group w-full inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none transition-all duration-300 ease-in-out stroke-blue-700 text-blue-700 h-[42px] min-w-[42px] gap-2 hover:stroke-blue-950 hover:text-blue-950 p-0"
-        >
-          <span>Download Brochure</span>
-          <img
-            src="assets/svg/download.svg"
-            alt=""
-            class="h-6 w-6 text-blue-700"
-          />
-        </a>
       </div>
     </div>
     }
